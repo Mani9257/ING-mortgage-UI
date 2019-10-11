@@ -1,0 +1,24 @@
+.navbar-default{
+    background: #ff6600;
+    padding: 0px 0px 30px 35px;
+}
+.logo{
+    width:200px;
+    height:55px;
+}
+.navbar-nav{
+    margin: 15px 0px 0px 0px;
+}
+.navbar-default .navbar-nav>li>a {
+    color: #91ff00;
+}
+.message{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    font-weight: bolder;
+    font-size: 18px;
+    color:red;
+}
+.message .info{font-weight: normal;}

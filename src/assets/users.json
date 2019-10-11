@@ -1,0 +1,53 @@
+{
+  "users": [
+    {
+      "firstName": "imran",
+      "lastName": "ali",
+      "mob": 776050,
+      "emailId": "ali@gmiail.com",
+      "password": "12345",
+      "id": 1
+    },
+    {
+      "emailId": "sasas",
+      "password": "sasas",
+      "id": 2
+    },
+    {
+      "emailId": "ayyanarajith7@gmail.com",
+      "password": "asas",
+      "id": 3
+    },
+    {
+      "emailId": "ayyanarajith7@gmail.com",
+      "password": "ajith1234",
+      "id": 4
+    },
+    {
+      "emailId": "ayyanarajith7@gmail.com",
+      "password": "ajith1234",
+      "id": 5
+    },
+    {
+      "emailId": "ayyanarajith7@gmail.com",
+      "password": "ajith1234",
+      "id": 6
+    },
+    {
+      "emailId": "ayyanarajith7@gmail.com",
+      "password": "ajith123",
+      "id": 7
+    },
+    {
+      "emailId": "ayyanarajith7@gmail.com",
+      "password": "1234",
+      "id": 8
+    }
+  ],
+  "bankUsers": [
+    {
+      "name": "imran",
+      "id": 1
+    }
+  ]
+}

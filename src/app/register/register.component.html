@@ -1,0 +1,73 @@
+<div class="register">
+  <h2>Register</h2>
+  <p-toast [style]="{marginTop: '80px'}"></p-toast>
+  <form [formGroup]="registerForm" #userData="ngForm" (ngSubmit)="onSubmit(userData.value)">
+    <div class="form-group">
+      <span class="ui-float-label">
+        <input id="float-input" type="text" size="30" formControlName="firstName"
+          [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }" pInputText>
+        <label for="float-input">First name</label>
+      </span>
+      <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
+        <div *ngIf="f.firstName.errors.required">First Name is required</div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <span class="ui-float-label">
+        <input id="float-input" type="text" size="30" formControlName="lastName"
+          [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }" pInputText>
+        <label for="float-input">Last Name</label>
+      </span>
+      <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
+        <div *ngIf="f.firstName.errors.required">Last Name is required</div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <!-- <label for="lastName">Mobile Number</label>
+      <input type="text" formControlName="mob" class="form-control"
+        [ngClass]="{ 'is-invalid': submitted && f.mob.errors }" />
+      <div *ngIf="submitted && f.mob.errors" class="invalid-feedback">
+        <div *ngIf="f.mob.errors.required">Mobile number is required</div>
+      </div> -->
+      <span class="ui-float-label">
+        <input id="float-input" type="text" size="30" formControlName="mob"
+          [ngClass]="{ 'is-invalid': submitted && f.mob.errors }" pInputText>
+        <label for="float-input">Mobile Number</label>
+      </span>
+      <div *ngIf="submitted && f.mob.errors" class="invalid-feedback">
+        <div *ngIf="f.mob.errors.required">Mobile Number is required</div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <span class="ui-float-label">
+        <input id="float-input" type="text" size="30" formControlName="username"
+          [ngClass]="{ 'is-invalid': submitted && f.username.errors }" pInputText>
+        <label for="float-input">User name</label>
+      </span>
+      <div *ngIf="submitted && f.mob.errors" class="invalid-feedback">
+        <div *ngIf="f.username.errors.required">User name is required</div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <span class="ui-float-label">
+        <input id="float-input" type="text" size="30" formControlName="password"
+          [ngClass]="{ 'is-invalid': submitted && f.password.errors }" pInputText>
+        <label for="float-input">Password</label>
+      </span>
+      <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+        <div *ngIf="f.password.errors.required">Password is required</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <button pButton type="submit" icon="pi pi-check" label="Register" [disabled]="!registerForm.valid"
+        (click)="showSuccess()"></button>
+      <img *ngIf="loading"
+        src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+      <a [routerLink]="['/login']" class="btn btn-link">Login here if you have already account</a>
+    </div>
+  </form>
+</div>

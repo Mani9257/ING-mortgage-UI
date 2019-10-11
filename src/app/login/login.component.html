@@ -1,0 +1,46 @@
+<header>
+    <div class="container_fluid">
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                        data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" routerLink="login"><img src="../../assets/images/ing-logo.jpeg" alt="Logo"
+                            class="logo"></a>
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a routerLink="login">Login</a></li>
+                        <li><a routerLink="register">Register</a></li>
+                    </ul>
+                </div><!-- /.navbar-collapse -->
+            </div><!-- /.container-fluid -->
+        </nav>
+    </div>
+</header>
+<div class="login">
+    <h2>Login<i class="pi pi-user"></i></h2>
+    <form (ngSubmit)="onSubmit()" #loginForm="ngForm">
+        <span class="ui-float-label">
+            <input id="float-input" type="text" [(ngModel)]="user.emailId" name="emailId" required size="50" pInputText>
+            <label for=" float-input">Email id</label>
+        </span><br />
+        <span class="ui-float-label">
+            <input id="float-input" type="password" [(ngModel)]="user.password" name="password" required size="50"
+                pInputText pPassword>
+            <label for=" float-input">Password</label>
+        </span><br />
+        <div class="form-group buttons">
+            <input type="submit" class="btn btn-info mr-2 pi pi-user" [disabled]="!loginForm.form.valid" value="Login">
+        </div>
+    </form>
+    <div *ngIf="message" class="alert alert-success">{{message.text}}</div>
+</div>

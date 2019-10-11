@@ -1,0 +1,22 @@
+.login{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    /*background: url(../../assets/login-background.jpg);*/
+}
+.navbar-default{
+    background: #ff6600;
+    padding: 0px 0px 30px 35px;
+}
+.logo{
+    width:200px;
+    height:55px;
+}
+.navbar-nav{
+    margin: 15px 0px 0px 0px;
+}
+.navbar-default .navbar-nav>li>a {
+    color: #91ff00;
+}
+.buttons input,.buttons button{margin-left: 5px;}

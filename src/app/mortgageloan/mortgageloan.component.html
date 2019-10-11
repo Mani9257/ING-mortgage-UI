@@ -1,0 +1,148 @@
+<header>
+  <div class="container_fluid">
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+            data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" routerLink="login"><img src="../../assets/images/ing-logo.jpeg" alt="Logo"
+              class="logo"></a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <li><a routerLink="about">About Us</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                aria-expanded="false">Products <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a routerLink="mortgage" (click)="fetchMortgage()">Mortgage</a></li>
+              </ul>
+            </li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a (click)="logout()">Logout</a></li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
+  </div>
+</header>
+
+<div class="message" *ngIf="msg">
+  <h1>You are not eligible to apply for loan</h1>
+  <p class="text-info">Eligibilty criteria is <br></p>
+  <ol class="text-info info">
+    <li>Age 18 or above.</li>
+    <li>Credit score greater than 18 and less than 700.</li>
+    <li>Account type should be
+      salaried.</li>
+  </ol>
+</div>
+<div class="container" id="mortgage" *ngIf="show">
+  <h3>Mortgage Loan</h3>
+  <div class="row">
+    <div class="col-md-12">
+      <form (ngSubmit)="onSubmit(loginForm.value)" #loginForm="ngForm">
+        <div class="form-group">
+          <label for="exampleInputPassword1">Property Name</label>
+          <input type="text" name="pname" class="form-control" id="exampleInputPassword1" placeholder="Property Name"
+            ngModel required>
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">Property Value</label>
+          <input type="text" name="propertyValue" class="form-control" id="exampleInputPassword1"
+            placeholder="Property Value" id="pvalue" ngModel required>
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">Deposit Amount</label>
+          <input type="text" name="depositAmount" class="form-control" id="exampleInputPassword1"
+            placeholder="Deposit Amount" id="damount" ngModel required>
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">Property Type</label>
+          <select class="form-control" required>
+            <option>Commercial</option>
+            <option>Residential</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">Rate of Interest</label>
+          <select class="form-control" name="rateOfInterest" id="rateOfInterest" ngModel required>
+            <option>3</option>
+            <option>3.5</option>
+            <option>4</option>
+            <option>4.5</option>
+            <option>5</option>
+            <option>5.5</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">Tenure</label>
+          <select class="form-control" id="term" name="term" ngModel required>
+            <option>4</option>
+            <option>5</option>
+            <option>6</option>
+            <option>7</option>
+            <option>8</option>
+            <option>9</option>
+          </select>
+        </div>
+        <div class="form-group buttons">
+          <button type="submit" class="btn btn-info" data-toggle="modal" data-target=" #myModal"
+            [disabled]="!loginForm.valid">Calculate</button>&nbsp;
+          <button type="submit" class="btn btn-danger">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+              aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">Calucalate Mortgage</h4>
+        </div>
+        <div class="modal-body">
+          <form action="">
+            <div class="form-group">
+              <label for="cust">Eligible Loan Amount</label>
+              <input type="text" class="form-control" value="{{eligibleLoanAmount}}" id="cust"
+                placeholder="Eligible Loan Amount" disabled>
+            </div>
+            <div class="form-group">
+              <label for="cust">Desired Loan Amount</label>
+              <input type="text" [(formControl)]="actualLoanAmount" class="form-control" id="cust"
+                placeholder="Desired Loan Amount" disabled>
+            </div>
+            <div class="form-group">
+              <label for="emi">EMI</label>
+              <input type="text" class="form-control" id="emi" placeholder="EMI" disabled>
+            </div>
+            <div class="form-group">
+              <label for="rate">Rate of Interest</label>
+              <input type="text" class="form-control" id="rate" placeholder="Rate of Interest" disabled>
+            </div>
+            <div class="form-group">
+              <label for="tenure">Tenure</label>
+              <input type="text" class="form-control" id="tenure" placeholder="Tenure" disabled>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary">Apply</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
