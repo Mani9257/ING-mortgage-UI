@@ -3,8 +3,6 @@ import { Router } from '@angular/router';
 import { User } from './user';
 import { UsersService } from '../services/user.service';
 import { FormGroup } from '@angular/forms';
-import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
-import { error } from 'util';
 
 
 @Component({ templateUrl: 'login.component.html', styleUrls: ['./login.component.css'] })
@@ -41,9 +39,12 @@ export class LoginComponent implements OnInit {
   onSubmit() {
     console.log(this.user.emailId);
     this.submitted = true;
-
     this.response = this.users.getUser(this.user.emailId, this.user.password).subscribe(response => {
-      console.log("inside", response);
+      // this.validateUser(this.response).then(r => {
+      // }, e => {
+      //   alert('Email id or Password is not valid');
+      // });
+      //console.log("inside", response);
       this.isUserLoggedIn.emit(true);
       this.router.navigate(['/home']);
     });
